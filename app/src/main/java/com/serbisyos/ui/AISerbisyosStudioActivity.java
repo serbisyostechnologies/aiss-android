@@ -20,7 +20,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +27,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import com.serbisyos.ui.databinding.ActivityMainBinding;
 
 public class AISerbisyosStudioActivity extends AppCompatActivity {
@@ -64,6 +62,8 @@ public class AISerbisyosStudioActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         errorLayout = findViewById(R.id.errorLayout);
         errorMessage = findViewById(R.id.errorMessage);
+
+        webView.setWebViewClient(new SerbisyosWebViewClient(AISerbisyosStudioActivity.this));
 
         swipeRefresh.setOnRefreshListener(() -> {
             if (webView.getUrl() != null) {
